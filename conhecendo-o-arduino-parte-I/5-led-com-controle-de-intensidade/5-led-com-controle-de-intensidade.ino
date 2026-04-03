@@ -2,26 +2,21 @@ int led = 9;
 unsigned int valorLido;
 unsigned int pwm;
 
-// Esta função "setup" roda uma vez quando a placa e ligada ou resetada.
-void setup() {
- pinMode(led, OUTPUT); // Configura o pino do led (digital) como saída.
-}
+void setup() { pinMode(led, OUTPUT); }
 
-// Função que se repete infinitamente quando a placa é ligada.
 void loop() {
-  valorLido = analogRead(A0); // valor entre 0 e 1024.
-  pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala.
-  analogWrite(led, pwm);//Escreve no led um sinal PWM proporcional ao valorLido.
+  valorLido = analogRead(A0);
+  pwm = map(valorLido, 0, 1023, 0, 255);
+  analogWrite(led, pwm);
 }
 
 /*  =============== EXPLICAÇÃO ===============   */
 
 /*
-Neste programa estamos usando uma técnica, de transformar saídas digitais em analógicas, isto é, ao invés de poder ser lido
-apenas dois estados do led (no nosso caso), podemos ler 256 -> entre 0 à 225. Esse valor está sendo lindo por meio da função
-analogRead, que é resposável por ler o valor do potenciometro, que pode varias entre 0 à 1023, e com o auxilio da função map
-o valor pode ser convertido, assim mudando a intensidade em que o led fica ligado.
+Neste programa estamos usando uma técnica, de transformar saídas digitais em
+analógicas, isto é, ao invés de poder ser lido apenas dois estados do led (no
+nosso caso), podemos ler 256 -> entre 0 à 225. Esse valor está sendo lido por
+meio da função analogRead, que é responsável por ler o valor do potenciômetro,
+que pode variar entre 0 à 1023, e com o auxílio da função map o valor pode ser
+convertido, assim mudando a intensidade em que o led fica ligado.
 */
-
-
-
